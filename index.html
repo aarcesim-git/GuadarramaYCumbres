@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guadarrama &amp; Cumbres | Inicio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- HEADER: Logotipo/nombre + navegación con página activa -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="index.html">
+          <img src="img/logo-cumbres.png" alt="Logo de Guadarrama y Cumbres" width="1536" height="1024" class="logo-navbar">
+          <span>GUADARRAMA &amp; CUMBRES</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Alternar navegación">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+          <ul class="navbar-nav ms-auto gap-lg-2">
+            <li class="nav-item">
+              <a class="nav-link active fw-semibold border-bottom border-2" aria-current="page" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="views/galeria.html">Galería</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="views/contacto.html">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="flex-grow-1">
+
+    <!-- 1. CARRUSEL DE IMÁGENES (mínimo 5 imágenes) -->
+    <section aria-label="Rutas destacadas en carrusel">
+      <div id="carruselRutas" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carruselRutas" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Ruta 1"></button>
+          <button type="button" data-bs-target="#carruselRutas" data-bs-slide-to="1" aria-label="Ruta 2"></button>
+          <button type="button" data-bs-target="#carruselRutas" data-bs-slide-to="2" aria-label="Ruta 3"></button>
+          <button type="button" data-bs-target="#carruselRutas" data-bs-slide-to="3" aria-label="Ruta 4"></button>
+          <button type="button" data-bs-target="#carruselRutas" data-bs-slide-to="4" aria-label="Ruta 5"></button>
+        </div>
+
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/ruta-bosque.jpg" width="3000" height="2000" class="d-block w-100" alt="Sendero entre pinos en la sierra">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2">
+              <h5>Senderos de bosque</h5>
+              <p>Recorridos a la sombra de pinares y robledales de montaña.</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="img/collado-sierra.jpg" class="d-block w-100" alt="Collado con vistas a la sierra">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2">
+              <h5>Collados y pasos naturales</h5>
+              <p>Transiciones abiertas con panorámicas amplias del valle.</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="img/cumbre-rocosa.jpg" width="4160" height="6240" class="d-block w-100" alt="Cumbre rocosa en altura">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2">
+              <h5>Cumbres y miradores</h5>
+              <p>Jornadas con mayor desnivel y vistas sobre el cordal.</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="img/arroyo-pradera.jpg" width="3648" height="5472" class="d-block w-100" alt="Arroyo junto a pradera alpina">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2">
+              <h5>Praderas y arroyos</h5>
+              <p>Tramos tranquilos ideales para caminar a ritmo constante.</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="img/atardecer-cumbres.jpg" width="6720" height="4476" class="d-block w-100" alt="Atardecer sobre las montañas">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2">
+              <h5>Luz de última hora</h5>
+              <p>Planificación cuidadosa para disfrutar del regreso con margen.</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carruselRutas" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carruselRutas" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 2. SECCIÓN COMPUESTA POR 4 CARDS -->
+    <section id="seccion-cards" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Tipos de rutas y preparativos</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+          <div class="col">
+            <div class="card h-100 shadow-sm border-0">
+              <img src="img/card-iniciacion.jpg"  width="6960" height="4640" class="card-img-top" alt="Ruta de iniciación">
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title h5">Iniciación</h3>
+                <p class="card-text small text-muted">Itinerarios accesibles, distancias contenidas y desniveles moderados para empezar.</p>
+                <a href="views/galeria.html" class="btn btn-outline-cumbres btn-sm mt-auto">Ver en galería</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card h-100 shadow-sm border-0">
+              <img src="img/card-media.jpg"  width="3371" height="5493" class="card-img-top" alt="Ruta de media montaña">
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title h5">Media montaña</h3>
+                <p class="card-text small text-muted">Rutas circulares y travesías de media jornada con cambios de ritmo y altura.</p>
+                <a href="views/galeria.html" class="btn btn-outline-cumbres btn-sm mt-auto">Ver en galería</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card h-100 shadow-sm border-0">
+              <img src="img/card-alta.jpg"  width="3000" height="4000" class="card-img-top" alt="Ruta de alta montaña">
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title h5">Alta montaña</h3>
+                <p class="card-text small text-muted">Ascensiones más exigentes que requieren buena forma física y margen horario.</p>
+                <a href="views/galeria.html" class="btn btn-outline-cumbres btn-sm mt-auto">Ver en galería</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card h-100 shadow-sm border-0">
+              <img src="img/card-material.jpg"  width="1024" height="1536" class="card-img-top" alt="Calzado y mochila de senderismo">
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title h5">Equipo y seguridad</h3>
+                <p class="card-text small text-muted">Calzado con buen agarre, agua suficiente, capas de abrigo y consulta del parte.</p>
+                <a href="views/contacto.html" class="btn btn-cumbres btn-sm mt-auto">Consultar ruta</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SECCIÓN CON UN ELEMENTO DE BOOTSTRAP A ELECCIÓN (Accordion) -->
+    <section id="seccion-extra" class="py-5 bg-cumbres-suave">
+      <div class="container">
+        <h2 class="text-center mb-4">Consejos y preguntas frecuentes</h2>
+        <div class="accordion" id="accordionMontana">
+          <div class="accordion-item">
+            <h3 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                ¿Cómo elegir una ruta según mi nivel actual?
+              </button>
+            </h3>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionMontana">
+              <div class="accordion-body small">
+                Revisa no solo los kilómetros, sino también el desnivel acumulado positivo y el tiempo estimado. Empieza por senderos cortos y de desnivel moderado antes de pasar a crestas o cumbres largas.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                ¿Qué conviene llevar siempre en la mochila?
+              </button>
+            </h3>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionMontana">
+              <div class="accordion-body small">
+                Agua, algo de comida energética, cortavientos o prenda de abrigo (la temperatura cambia rápido en altura), protección solar, batería cargada y el track o mapa descargado.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                ¿Cómo puedo enviar sugerencias o dudas sobre una ruta?
+              </button>
+            </h3>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionMontana">
+              <div class="accordion-body small">
+                Puedes escribirnos desde la página de contacto indicando la zona, tus datos y cualquier comentario adicional para que revisemos tu consulta.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER: 1) Empresa y aviso legal, 2) Segundo menú, 3) Redes sociales -->
+  <footer class="bg-dark text-light py-4 mt-auto">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-12 col-lg-4">
+          <h4 class="h6 fw-bold text-uppercase">Guadarrama &amp; Cumbres</h4>
+          <p class="small mb-2">Divulgación de rutas de senderismo y montaña en la sierra.</p>
+          <a href="#aviso-legal" class="link-light small text-decoration-underline">Aviso legal</a>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <h4 class="h6 fw-bold text-uppercase">Navegación</h4>
+          <ul class="list-unstyled small mb-0">
+            <li><a href="index.html" class="link-light text-decoration-none d-block py-1">Inicio</a></li>
+            <li><a href="galeria.html" class="link-light text-decoration-none d-block py-1">Galería</a></li>
+            <li><a href="contacto.html" class="link-light text-decoration-none d-block py-1">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <h4 class="h6 fw-bold text-uppercase">Redes sociales</h4>
+          <div class="d-flex gap-3">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="link-light small">Instagram</a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="link-light small">YouTube</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="link-light small">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

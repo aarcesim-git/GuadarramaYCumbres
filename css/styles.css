@@ -1,0 +1,115 @@
+:root {
+  --cumbres-primario: #2f5233;
+  --cumbres-primario-oscuro: #1f3822;
+  --cumbres-suave: #f4f6f2;
+}
+
+.bg-cumbres-suave {
+  background-color: var(--cumbres-suave);
+}
+
+.navbar-brand span {
+  letter-spacing: 0.05em;
+  color: var(--cumbres-primario-oscuro);
+}
+
+.logo-navbar {
+  height: 38px;
+  width: auto;
+}
+
+.nav-link.active {
+  color: var(--cumbres-primario) !important;
+  border-color: var(--cumbres-primario) !important;
+}
+
+.btn-cumbres {
+  background-color: var(--cumbres-primario);
+  border-color: var(--cumbres-primario);
+  color: #ffffff;
+}
+
+.btn-cumbres:hover {
+  background-color: var(--cumbres-primario-oscuro);
+  border-color: var(--cumbres-primario-oscuro);
+  color: #ffffff;
+}
+
+.btn-outline-cumbres {
+  border-color: var(--cumbres-primario);
+  color: var(--cumbres-primario);
+}
+
+.btn-outline-cumbres:hover {
+  background-color: var(--cumbres-primario);
+  border-color: var(--cumbres-primario);
+  color: #ffffff;
+}
+
+/* Carrusel */
+#carruselRutas .carousel-item img {
+  height: 450px;
+  object-fit: cover;
+}
+
+@media (max-width: 576px) {
+  #carruselRutas .carousel-item img {
+    height: 270px;
+  }
+}
+
+
+/* Cards */
+#seccion-cards .card-img-top {
+  height: 190px;
+  object-fit: cover;
+}
+
+#seccion-cards .card-horizontal {
+  object-position: center center;
+}
+
+#seccion-cards .card-vertical-top {
+  object-position: center 25%;
+}
+
+#seccion-cards .card-vertical-center {
+  object-position: center 45%;
+}
+
+/* Galería: efecto visual al pasar el ratón */
+.galeria-card {
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.galeria-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover
+}
+
+.galeria-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.galeria-card:hover img {
+  transform: scale(1.06);
+  filter: brightness(0.92);
+}
+
+.galeria-card .card-horizontal {
+  object-position: center center;
+}
+
+.galeria-card .card-vertical-top {
+  object-position: center 25%;
+}
+
+.galeria-card .card-vertical-center {
+  object-position: center 45%;
+}

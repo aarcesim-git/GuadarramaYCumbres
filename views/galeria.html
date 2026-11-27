@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guadarrama &amp; Cumbres | Galería</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- HEADER: Logotipo/nombre + navegación con página activa -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="../index.html">
+          <img src="../img/logo-cumbres.png" alt="Logo de Guadarrama y Cumbres" width="1536" height="1024" class="logo-navbar">
+          <span>GUADARRAMA &amp; CUMBRES</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Alternar navegación">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+          <ul class="navbar-nav ms-auto gap-lg-2">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active fw-semibold border-bottom border-2" aria-current="page" href="galeria.html">Galería</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contacto.html">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="flex-grow-1 py-5">
+    <section class="container">
+      <div class="text-center mb-4">
+        <h1 class="h2 mb-2">Galería de rutas y paisajes</h1>
+        <p class="text-muted mb-0">Un recorrido visual por senderos, collados y cumbres de la sierra.</p>
+      </div>
+
+      <!-- CUADRÍCULA DE 9 IMÁGENES (mínimo 9 exigido) -->
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+        <!-- 1: 3000x2000 (horizontal) -->
+        <div class="col">
+          <figure class="card h-100 shadow-sm border-0 mb-0">
+            <div class="galeria-card">
+              <img src="../img/ruta-bosque.jpg" width="3000" height="2000" class="card-horizontal" alt="Sendero entre pinos en la sierra">
+            </div>
+            <figcaption class="card-body">
+              <h2 class="h6 card-title mb-1">Sendero de pinar</h2>
+              <p class="card-text small text-muted mb-0">Camino sombreado entre árboles de montaña.</p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- 2: 3648x5472 (vertical) -->
+        <div class="col">
+          <figure class="card h-100 shadow-sm border-0 mb-0">
+            <div class="galeria-card">
+              <img src="../img/arroyo-pradera.jpg" width="3648" height="5472" class="card-vertical-center" alt="Arroyo junto a pradera alpina">
+            </div>
+            <figcaption class="card-body">
+              <h2 class="h6 card-title mb-1">Arroyo de pradera</h2>
+              <p class="card-text small text-muted mb-0">Agua fresca junto a zonas abiertas de pasto.</p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- 3: 4160x6240 (vertical) -->
+        <div class="col">
+          <figure class="card h-100 shadow-sm border-0 mb-0">
+            <div class="galeria-card">
+              <img src="../img/cumbre-rocosa.jpg" width="4160" height="6240" class="card-vertical-top" alt="Cumbre rocosa en altura">
+            </div>
+            <figcaption class="card-body">
+              <h2 class="h6 card-title mb-1">Cresta y cumbre</h2>
+              <p class="card-text small text-muted mb-0">Tramo rocoso con vistas sobre el valle.</p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- 4: 6720x4476 (horizontal) -->
+        <div class="col">
+          <figure class="card h-100 shadow-sm border-0 mb-0">
+            <div class="galeria-card">
+              <img src="../img/atardecer-cumbres.jpg" width="6720" height="4476" class="card-horizontal" alt="Atardecer sobre las montañas">
+            </div>
+            <figcaption class="card-body">
+              <h2 class="h6 card-title mb-1">Atardecer en altura</h2>
+              <p class="card-text small text-muted mb-0">Cielos cálidos al caer la tarde en la sierra.</p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- 5: 6960x4640 (horizontal) -->
+        <div class="col">
+          <figure class="card h-100 shadow-sm border-0 mb-0">
+            <div class="galeria-card">
+              <img src="../img/card-iniciacion.jpg" width="6960" height="4640" class="card-horizontal" alt="Sendero de iniciación en montaña">
+            </div>
+            <figcaption class="card-body">
+              <h2 class="h6 card-title mb-1">Ruta de iniciación</h2>
+              <p class="card-text small text-muted mb-0">Recorrido accesible y de ritmo cómodo.</p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- 6: 3371x5493 (vertical) -->
+        <div class="col">
+          <figure class="card h-100 shadow-sm border-0 mb-0">
+            <div class="galeria-card">
+              <img src="../img/card-media.jpg" width="3371" height="5493" class="card-vertical-top" alt="Travesía de media montaña">
+            </div>
+            <figcaption class="card-body">
+              <h2 class="h6 card-title mb-1">Travesía de media montaña</h2>
+              <p class="card-text small text-muted mb-0">Desnivel moderado y cambios de paisaje.</p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- 7: 3000x4000 (vertical) -->
+        <div class="col">
+          <figure class="card h-100 shadow-sm border-0 mb-0">
+            <div class="galeria-card">
+              <img src="../img/card-alta.jpg" width="3000" height="4000" class="card-vertical-top" alt="Ascenso en alta montaña">
+            </div>
+            <figcaption class="card-body">
+              <h2 class="h6 card-title mb-1">Ascenso de altura</h2>
+              <p class="card-text small text-muted mb-0">Jornada exigente con panorámica abierta.</p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- 8: 1024x1536 (vertical) -->
+        <div class="col">
+          <figure class="card h-100 shadow-sm border-0 mb-0">
+            <div class="galeria-card">
+              <img src="../img/card-material.jpg" width="1024" height="1536" class="card-vertical-center" alt="Equipo de montaña y mochila">
+            </div>
+            <figcaption class="card-body">
+              <h2 class="h6 card-title mb-1">Equipo de travesía</h2>
+              <p class="card-text small text-muted mb-0">Preparación básica para cada salida.</p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- 9: completa las 9 imágenes obligatorias -->
+        <div class="col">
+          <figure class="card h-100 shadow-sm border-0 mb-0">
+            <div class="galeria-card">
+              <img src="../img/galeria-mirador.jpg" width='3648' height='2593' class="card-horizontal" alt="Mirador y sendero en la sierra">
+            </div>
+            <figcaption class="card-body">
+              <h2 class="h6 card-title mb-1">Mirador de sierra</h2>
+              <p class="card-text small text-muted mb-0">Punto de descanso con vistas al entorno.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER: 1) Empresa y aviso legal, 2) Segundo menú, 3) Redes sociales -->
+  <footer class="bg-dark text-light py-4 mt-auto">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-12 col-lg-4">
+          <h4 class="h6 fw-bold text-uppercase">Guadarrama &amp; Cumbres</h4>
+          <p class="small mb-2">Divulgación de rutas de senderismo y montaña en la sierra.</p>
+          <a href="#aviso-legal" class="link-light small text-decoration-underline">Aviso legal</a>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <h4 class="h6 fw-bold text-uppercase">Navegación</h4>
+          <ul class="list-unstyled small mb-0">
+            <li><a href="../index.html" class="link-light text-decoration-none d-block py-1">Inicio</a></li>
+            <li><a href="galeria.html" class="link-light text-decoration-none d-block py-1">Galería</a></li>
+            <li><a href="contacto.html" class="link-light text-decoration-none d-block py-1">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <h4 class="h6 fw-bold text-uppercase">Redes sociales</h4>
+          <div class="d-flex gap-3">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="link-light small">Instagram</a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="link-light small">YouTube</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="link-light small">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
