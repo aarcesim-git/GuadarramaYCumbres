@@ -4,6 +4,11 @@
   --cumbres-suave: #f4f6f2;
 }
 
+main,
+section[id] {
+  scroll-margin-top: 84px;
+}
+
 .bg-cumbres-suave {
   background-color: var(--cumbres-suave);
 }
@@ -48,19 +53,14 @@
 
 /* Carrusel */
 #carruselRutas .carousel-item img {
+  width: 100%;
   height: 450px;
   object-fit: cover;
 }
 
-@media (max-width: 576px) {
-  #carruselRutas .carousel-item img {
-    height: 270px;
-  }
-}
-
-
 /* Cards */
 #seccion-cards .card-img-top {
+  width: 100%;
   height: 190px;
   object-fit: cover;
 }
@@ -81,12 +81,6 @@
 .galeria-card {
   overflow: hidden;
   border-radius: 0.5rem;
-}
-
-.galeria-card img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover
 }
 
 .galeria-card img {
@@ -122,4 +116,67 @@
   border-radius: 0.5rem;
   background-color: #eef2ed;
   overflow: hidden;
+  z-index: 1;
+}
+
+/* Ajustes para pantalla pequeña (sm) */
+@media (max-width: 576px) {
+  .logo-navbar {
+    height: 32px;
+  }
+
+  .navbar-brand {
+    font-size: 0.9rem;
+    gap: 0.35rem !important;
+  }
+
+  .navbar-brand span {
+    letter-spacing: 0.02em;
+  }
+
+  #carruselRutas .carousel-item img {
+    height: 280px;
+  }
+
+  #carruselRutas .carousel-caption {
+    bottom: 1.5rem;
+    left: 12%;
+    right: 12%;
+    padding: 0.4rem 0.6rem !important;
+  }
+
+  #carruselRutas .carousel-caption h5 {
+    font-size: 0.9rem;
+    margin-bottom: 0.15rem;
+  }
+
+  #carruselRutas .carousel-caption p {
+    font-size: 0.75rem;
+    line-height: 1.25;
+  }
+
+  .galeria-card img {
+    height: 200px;
+  }
+
+  #mapa {
+    height: 280px;
+    min-height: 280px;
+  }
+}
+
+/* Ajustes para pantalla grande (lg) */
+@media (min-width: 992px) {
+  .logo-navbar {
+    height: 42px;
+  }
+
+  #carruselRutas .carousel-item img {
+    height: 480px;
+  }
+
+  #mapa {
+    height: 400px;
+    min-height: 400px;
+  }
 }
