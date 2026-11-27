@@ -211,22 +211,24 @@
     <div class="container">
       <div class="row gy-4">
         <div class="col-12 col-lg-4">
-          <h4 class="h6 fw-bold text-uppercase">Guadarrama &amp; Cumbres</h4>
+          <p class="h6 fw-bold text-uppercase">Guadarrama &amp; Cumbres</p>
           <p class="small mb-2">Divulgación de rutas de senderismo y montaña en la sierra.</p>
-          <a href="#aviso-legal" class="link-light small text-decoration-underline">Aviso legal</a>
+          <button type="button" class="btn btn-link link-light small text-decoration-underline p-0 align-baseline" data-bs-toggle="modal" data-bs-target="#modalAvisoLegal">
+            Aviso legal
+          </button>
         </div>
 
         <div class="col-12 col-lg-4">
-          <h4 class="h6 fw-bold text-uppercase">Navegación</h4>
+          <p class="h6 fw-bold text-uppercase">Navegación</p>
           <ul class="list-unstyled small mb-0">
             <li><a href="index.html" class="link-light text-decoration-none d-block py-1">Inicio</a></li>
-            <li><a href="galeria.html" class="link-light text-decoration-none d-block py-1">Galería</a></li>
-            <li><a href="contacto.html" class="link-light text-decoration-none d-block py-1">Contacto</a></li>
+            <li><a href="views/galeria.html" class="link-light text-decoration-none d-block py-1">Galería</a></li>
+            <li><a href="views/contacto.html" class="link-light text-decoration-none d-block py-1">Contacto</a></li>
           </ul>
         </div>
 
         <div class="col-12 col-lg-4">
-          <h4 class="h6 fw-bold text-uppercase">Redes sociales</h4>
+          <p class="h6 fw-bold text-uppercase">Redes sociales</p>
           <div class="d-flex gap-3">
             <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="link-light small">Instagram</a>
             <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="link-light small">YouTube</a>
@@ -238,5 +240,34 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- MODAL DE AVISO LEGAL -->
+  <div class="modal fade" id="modalAvisoLegal" tabindex="-1" aria-labelledby="tituloAvisoLegal" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content text-dark">
+        <div class="modal-header">
+          <h2 class="modal-title h5 mb-0" id="tituloAvisoLegal">Aviso legal</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body small">
+          <p class="fw-semibold mb-1">1. Objeto y finalidad del sitio</p>
+          <p>El sitio web <strong>Guadarrama &amp; Cumbres</strong> ha sido desarrollado con fines divulgativos y académicos para presentar rutas de senderismo, galería fotográfica de montaña y un formulario de contacto con mapa interactivo.</p>
+
+          <p class="fw-semibold mb-1">2. Propiedad intelectual</p>
+          <p>Los textos, estructura, código y recursos gráficos utilizados en este proyecto pertenecen a sus respectivos autores o se emplean bajo las condiciones de uso correspondientes al ejercicio académico.</p>
+
+          <p class="fw-semibold mb-1">3. Responsabilidad y geolocalización</p>
+          <p>La información de rutas y el mapa interactivo tienen carácter orientativo. El uso de la geolocalización en el navegador requiere el consentimiento previo del usuario y, si no se concede o no está disponible, el mapa muestra una ubicación de referencia.</p>
+
+          <p class="fw-semibold mb-1 mb-0">4. Protección de datos y almacenamiento local</p>
+          <p class="mb-0">Este sitio estático no dispone de servidor de almacenamiento externo; los datos introducidos en el formulario de contacto se validan en el cliente y se gestionan localmente en el navegador sin fines comerciales.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
