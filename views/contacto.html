@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guadarrama &amp; Cumbres | Contacto</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- HEADER: Logotipo/nombre + navegación con página activa -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="../index.html">
+          <img src="../img/logo-cumbres.png" alt="Logo de Guadarrama y Cumbres" width="1536" height="1024" class="logo-navbar">
+          <span>GUADARRAMA &amp; CUMBRES</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Alternar navegación">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+          <ul class="navbar-nav ms-auto gap-lg-2">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="galeria.html">Galería</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active fw-semibold border-bottom border-2" aria-current="page" href="contacto.html">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="flex-grow-1 py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h1 class="h2 mb-2">Contacto y ubicación</h1>
+        <p class="text-muted mb-0">Escríbenos para consultar rutas o consulta el mapa interactivo.</p>
+      </div>
+
+      <div class="row g-5">
+        <!-- FORMULARIO DE CONTACTO -->
+        <div class="col-12 col-lg-6">
+          <div class="card shadow-sm border-0 p-4">
+            <h2 class="h4 mb-3">Envíanos tu consulta</h2>
+
+            <div id="mensajeEstado" class="alert d-none" role="alert"></div>
+
+            <form id="formContacto" novalidate>
+              <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required placeholder="Tu nombre">
+                <div class="invalid-feedback">Introduce tu nombre (mínimo 2 letras, sin números).</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="apellidos" class="form-label">Apellidos <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="apellidos" name="apellidos" required placeholder="Tus apellidos">
+                <div class="invalid-feedback">Introduce tus apellidos (mínimo 2 letras, sin números).</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="telefono" class="form-label">Teléfono <span class="text-danger">*</span></label>
+                <input type="tel" class="form-control" id="telefono" name="telefono" required placeholder="600123456">
+                <div class="invalid-feedback">Introduce un teléfono válido de 9 dígitos (empezando por 6, 7, 8 o 9).</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="email" class="form-label">Correo electrónico <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="email" name="email" required placeholder="nombre@correo.com">
+                <div class="invalid-feedback">Introduce un correo electrónico válido.</div>
+              </div>
+
+              <div class="mb-4">
+                <label for="observaciones" class="form-label">Observaciones</label>
+                <textarea class="form-control" id="observaciones" name="observaciones" rows="4" placeholder="Indica la ruta, fecha prevista o cualquier duda..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-cumbres w-100">Enviar mensaje</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- MAPA DINÁMICO -->
+        <div class="col-12 col-lg-6">
+          <div class="card shadow-sm border-0 p-4 h-100">
+            <h2 class="h4 mb-2">Mapa de ubicación</h2>
+            <p id="estadoMapa" class="small text-muted mb-3">Comprobando geolocalización...</p>
+
+            <div id="mapa"></div>
+
+            <div class="mt-3 d-flex flex-wrap gap-2">
+              <button type="button" id="btnCentrarUsuario" class="btn btn-outline-cumbres btn-sm">Mi ubicación</button>
+              <button type="button" id="btnCentrarMasterD" class="btn btn-outline-cumbres btn-sm">Ubicación MasterD</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER: 1) Empresa y aviso legal, 2) Segundo menú, 3) Redes sociales -->
+  <footer class="bg-dark text-light py-4 mt-auto">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-12 col-lg-4">
+          <h4 class="h6 fw-bold text-uppercase">Guadarrama &amp; Cumbres</h4>
+          <p class="small mb-2">Divulgación de rutas de senderismo y montaña en la sierra.</p>
+          <a href="#aviso-legal" class="link-light small text-decoration-underline">Aviso legal</a>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <h4 class="h6 fw-bold text-uppercase">Navegación</h4>
+          <ul class="list-unstyled small mb-0">
+            <li><a href="../index.html" class="link-light text-decoration-none d-block py-1">Inicio</a></li>
+            <li><a href="galeria.html" class="link-light text-decoration-none d-block py-1">Galería</a></li>
+            <li><a href="contacto.html" class="link-light text-decoration-none d-block py-1">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <h4 class="h6 fw-bold text-uppercase">Redes sociales</h4>
+          <div class="d-flex gap-3">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="link-light small">Instagram</a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="link-light small">YouTube</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="link-light small">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="../js/contacto.js"></script>
+</body>
+</html>
