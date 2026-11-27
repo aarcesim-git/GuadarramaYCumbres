@@ -59,13 +59,13 @@
               <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="nombre" name="nombre" required placeholder="Tu nombre">
-                <div class="invalid-feedback">Introduce tu nombre (mínimo 2 letras, sin números).</div>
+                <div class="invalid-feedback">Introduce tu nombre (entre 3 y 40 letras y espacios).</div>
               </div>
 
               <div class="mb-3">
                 <label for="apellidos" class="form-label">Apellidos <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="apellidos" name="apellidos" required placeholder="Tus apellidos">
-                <div class="invalid-feedback">Introduce tus apellidos (mínimo 2 letras, sin números).</div>
+                <div class="invalid-feedback">Introduce tus apellidos (entre 4 y 60 letras y espacios).</div>
               </div>
 
               <div class="mb-3">
@@ -77,15 +77,18 @@
               <div class="mb-3">
                 <label for="email" class="form-label">Correo electrónico <span class="text-danger">*</span></label>
                 <input type="email" class="form-control" id="email" name="email" required placeholder="nombre@correo.com">
-                <div class="invalid-feedback">Introduce un correo electrónico válido.</div>
+                <div class="invalid-feedback">Introduce un correo electrónico válido de un proveedor admitido.</div>
               </div>
 
               <div class="mb-4">
-                <label for="observaciones" class="form-label">Observaciones</label>
-                <textarea class="form-control" id="observaciones" name="observaciones" rows="4" placeholder="Indica la ruta, fecha prevista o cualquier duda..."></textarea>
+                <label for="observaciones" class="form-label">Comentarios</label>
+                <textarea class="form-control" id="observaciones" name="observaciones" rows="4" placeholder="Indica la ruta, fecha prevista o cualquier comentario..."></textarea>
               </div>
 
-              <button type="submit" class="btn btn-cumbres w-100">Enviar mensaje</button>
+              <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-cumbres flex-grow-1">Enviar mensaje</button>
+                <button type="reset" id="btnLimpiarForm" class="btn btn-outline-cumbres">Limpiar</button>
+              </div>
             </form>
           </div>
         </div>
