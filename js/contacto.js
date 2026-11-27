@@ -1,16 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
+
   /* 1. Validación del formulario con expresiones regulares. */
+  
   const form = document.getElementById("formContacto");
   const mensajeEstado = document.getElementById("mensajeEstado");
+  const CLAVE_STORAGE = "consultasGuadarramaCumbres";
 
   const campos = {
     nombre: {
       input: document.getElementById("nombre"),
-      regex: /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s'-]{2,40}$/
+      regex: /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s]{3,40}$/
     },
     apellidos: {
       input: document.getElementById("apellidos"),
-      regex: /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s'-]{2,60}$/
+      regex: /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s]{4,60}$/
     },
     telefono: {
       input: document.getElementById("telefono"),
@@ -18,22 +21,58 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     email: {
       input: document.getElementById("email"),
-      regex: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
+      regex: /^(?!.*\.\.)[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/
     }
   };
 
-  function validarCampo(clave) {
-    const { input, regex } = campos[clave];
-    const valorLimpio = input.value.trim();
+  const DOMINIOS_PERMITIDOS = new Set([
+    "gmail.com",
+    "hotmail.com",
+    "hotmail.es",
+    "outlook.com",
+    "outlook.es",
+    "yahoo.com",
+    "yahoo.es",
+    "icloud.com",
+    "live.com"
+  ]);
 
-    if (clave === "telefono") {
-      input.value = valorLimpio.replace(/\s+/g, "");
+  function esEmailPermitido(valor) {
+    const limpio = valor.trim().toLowerCase();
+    if (!campos.email.regex.test(limpio)) {
+      return false;
     }
 
-    const esValido = regex.test(input.value.trim());
+    const [, dominio] = limpio.split("@");
+    return DOMINIOS_PERMITIDOS.has(dominio);
+  }
+
+  function validarCampo(clave) {
+    const { input, regex } = campos[clave];
+    let valor = input.value.trim();
+
+    if (clave === "telefono") {
+      valor = valor.replace(/\s+/g, "");
+      input.value = valor;
+    }
+
+    const esValido = clave === "email" ? esEmailPermitido(valor) : regex.test(valor);
+
     input.classList.toggle("is-valid", esValido);
     input.classList.toggle("is-invalid", !esValido);
     return esValido;
+  }
+
+  function limpiarEstadosFormulario() {
+    Object.keys(campos).forEach((clave) => {
+      campos[clave].input.classList.remove("is-valid", "is-invalid");
+    });
+  }
+
+  function guardarEnLocalStorage(datos) {
+    const historial = JSON.parse(localStorage.getItem(CLAVE_STORAGE) || "[]");
+    historial.push(datos);
+    localStorage.setItem(CLAVE_STORAGE, JSON.stringify(historial));
   }
 
   Object.keys(campos).forEach((clave) => {
@@ -42,6 +81,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   if (form) {
+    form.addEventListener("reset", () => {
+      limpiarEstadosFormulario();
+      if (mensajeEstado) {
+        mensajeEstado.className = "alert d-none";
+        mensajeEstado.textContent = "";
+      }
+    });
+
     form.addEventListener("submit", (event) => {
       event.preventDefault();
 
@@ -57,52 +104,40 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      mensajeEstado.className = "alert alert-success";
-      mensajeEstado.textContent = "Formulario validado correctamente. Tu consulta se ha registrado.";
-      form.reset();
+      const datosConsulta = {
+        fecha: new Date().toLocaleString("es-ES"),
+        nombre: campos.nombre.input.value.trim(),
+        apellidos: campos.apellidos.input.value.trim(),
+        telefono: campos.telefono.input.value.trim(),
+        email: campos.email.input.value.trim(),
+        observaciones: document.getElementById("observaciones").value.trim()
+      };
 
-      Object.keys(campos).forEach((clave) => {
-        campos[clave].input.classList.remove("is-valid", "is-invalid");
-      });
+      guardarEnLocalStorage(datosConsulta);
+
+      mensajeEstado.className = "alert alert-success";
+      mensajeEstado.textContent = "Formulario validado y enviado correctamente.";
+      form.reset();
+      limpiarEstadosFormulario();
     });
   }
 
-  /* 2. Mapa dinámico con geolocalización y fallback a MasterD */
-const mapaContenedor = document.getElementById("mapa");
+  /* 2. Mapa dinámico con geolocalización y fallback a MasterD. */
+
+  const mapaContenedor = document.getElementById("mapa");
   const estadoMapa = document.getElementById("estadoMapa");
   const btnUsuario = document.getElementById("btnCentrarUsuario");
   const btnMasterD = document.getElementById("btnCentrarMasterD");
 
-  // Ubicación de respaldo (MasterD Madrid)
   const coordsMasterD = [40.4378, -3.7003];
   let coordsUsuario = null;
 
   if (mapaContenedor && typeof L !== "undefined") {
     const mapa = L.map("mapa").setView(coordsMasterD, 15);
 
-    // Capa base limpia sin mosaicos externos bloqueados ni marcas de API key
     L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", {
       maxZoom: 19,
       attribution: "Tiles &copy; Esri"
-    }).addTo(mapa);
-
-    L.gridLayer({
-      createTile: function (coords) {
-        const tile = document.createElement("canvas");
-        const size = this.getTileSize();
-        tile.width = size.x;
-        tile.height = size.y;
-        const ctx = tile.getContext("2d");
-        ctx.fillStyle = "#eef4ee";
-        ctx.fillRect(0, 0, size.x, size.y);
-        ctx.strokeStyle = "#d4dfd4";
-        ctx.lineWidth = 1;
-        ctx.strokeRect(0.5, 0.5, size.x - 1, size.y - 1);
-        ctx.fillStyle = "#5c745e";
-        ctx.font = "11px sans-serif";
-        ctx.fillText(`Z${coords.z} (${coords.x}, ${coords.y})`, 8, 16);
-        return tile;
-      }
     }).addTo(mapa);
 
     const marcador = L.marker(coordsMasterD)
